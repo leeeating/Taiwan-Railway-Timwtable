@@ -2,17 +2,12 @@
 # coding: utf-8
 
 # ## **使用POST方法來爬取台鐵的時刻表**
-# ### [列車時刻/車次查詢](https://www.railway.gov.tw/tra-tip-web/tip/tip001/tip112/gobytime)
-
-# In[1]:
 
 
 # 可以去掉 python 輸出時，因為軟體版本所引起的警告的警告。
 import warnings
 warnings.filterwarnings('ignore')
 
-
-# In[2]:
 
 
 import requests
@@ -41,9 +36,7 @@ res_post.encoding = 'utf-8'  # 為了能夠順利讓網頁中的中文字正確�
 #print (res_post.text) # 看一下網頁的內容
 
 
-# ### **剖析網頁內容，瞭解要抓的表格在哪裡**
-
-# In[3]:
+### **剖析網頁內容，瞭解要抓的表格在哪裡**
 
 
 from bs4 import BeautifulSoup
@@ -56,9 +49,8 @@ tables = soup.select('table[class="itinerary-controls"]')
 print('共掃出 %d 個表格！\n' % len(tables))
 
 
-# ### **用 Pandas 資料科學套件來讀取爬出的表格**
+### **用 Pandas 資料科學套件來讀取爬出的表格**
 
-# In[4]:
 
 
 import pandas as pd
